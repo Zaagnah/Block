@@ -78,9 +78,8 @@ public class PlayerMove : MonoBehaviour
             blocks.Add(block.transform);
             Vector3 pointPosition = new Vector3(0, -1, 0);
             Vector3 previousPosition = transform.position -pointPosition;
-            //float sqrDistance = BlockDistance * BlockDistance;
-            //Vector3 pointPosition = new Vector3(0, 1, 0);
-            //Vector3 previousPosition = _transform.position - pointPosition;
+            
+            
             var lastBlock = blocks.Count - 1;
             transform.position = transform.position - pointPosition;
             block.position =  blocks[lastBlock].position ;
@@ -96,7 +95,7 @@ public class PlayerMove : MonoBehaviour
                 //break;
             //}
 
-            //gameObject.transform.position = previousPosition;
+            
             block.transform.SetParent(transform);
            
         } else if(collision.gameObject.tag == "Enemy") 
@@ -106,8 +105,6 @@ public class PlayerMove : MonoBehaviour
             blocks[lastBlock].SetParent(null);
             blocks[lastBlock].gameObject.GetComponent<MeshRenderer>().material.color = new Color(1,1,1);
             blocks.RemoveAt(lastBlock);
-            
-            //Destroy(blocks[lastBlock]);
             Destroy(collision.gameObject);
             //Vector3 pointPosition = new Vector3(0, 1, 0);
             //Vector3 previousPosition = transform.position - pointPosition;
